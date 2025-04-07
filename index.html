@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>SM Engagement</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/gramener/assets/main/straive-favicon.svg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html-to-markdown@0.0.10/html-to-markdown.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Include DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+    <!-- Include jQuery (required for DataTables) -->
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/8.2.2/gridstack.min.css" />
+
+    <!-- Include DataTables JS -->
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <style>
+        .selected {
+            border: 2px solid rgb(45, 93, 197);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main-container">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark"
+            style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1030;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/" onclick="event.preventDefault();">SM Engagement</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="nav-item dropdown ms-auto" role="group" aria-label="Toggle dark mode"
+                        title="Toggle Dark Mode">
+                        <button class="dark-theme-toggle btn btn-outline-light dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" aria-label="Toggle theme (auto)">
+                            <i class="bi bi-circle-half"></i> <span class="d-lg-none ms-2">Toggle theme</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><button class="dropdown-item" data-bs-theme-value="light"><i
+                                        class="me-2 bi bi-sun-fill"></i>
+                                    Light</button></li>
+                            <li><button class="dropdown-item" data-bs-theme-value="dark"><i
+                                        class="me-2 bi bi-moon-stars-fill"></i>
+                                    Dark</button></li>
+                            <li><button class="dropdown-item" data-bs-theme-value="auto"><i
+                                        class="me-2 bi bi-circle-half"></i>
+                                    Auto</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav class="sidebar" style="margin-top: 3.2rem;">
+            <p class="btn active" data-tab="home-tab" id="home-tab-button">
+                <i class="bi bi-house"></i> Home
+            </p>
+            <p class="btn" data-tab="data-ingest-tab" id="data-ingest-tab-button">
+                <i class="bi bi-house"></i> Ingest Data
+            </p>
+            <p class="btn" data-tab="view-tab" id="view-tab-button">
+                <i class="bi bi-compass"></i> 360&deg View
+            </p>
+            <p class="btn" data-tab="Dashboard-tab" id="Dashboard-tab-button">
+                <i class="bi bi-bar-chart"></i> Report
+            </p>
+            <p class="btn" data-tab="datachat-tab" id="datachat-tab-button">
+                <i class="bi bi-chat-dots"></i> Datachat
+            </p>
+        </nav>
+        <div class="content" style="margin-top: 3.5rem; padding: 20px;">
+            <div class="tab-content" id="tabContent">
+
+                <div id="home-tab" class="tab active">
+                    <div style="text-align: center; align-items: center;">
+                        <h2>Social Media Engagement Tracker</h2>
+                    </div>
+                    <p style="margin-top: 2rem;">
+                        Welcome to <strong>our Social Media Analytics Platform!</strong> – that offers comprehensive
+                        tools to help you engage with and analyze social media content, enabling you to: Track audience
+                        interactions, Analyze Posts, Analyze the sentiments, Visualize and create detailed reports and
+                        Conversational Insights.
+                    </p>
+                    <p>
+                        Social Media Analytics User Flow:
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Home:</strong> Overview of the platform and your current engagement statistics.
+                        </li>
+                        <li>
+                            <strong>Ingest Data:</strong> Upload and process social media post URLs for analysis.
+                        </li>
+                        <li>
+                            <strong>360° View:</strong> Gain a comprehensive understanding of your social media
+                            interactions and audience behavior.
+                        </li>
+                        <li>
+                            <strong>Reports:</strong> Visualize data through reports and charts to refine your
+                            strategies.
+                        </li>
+                        <li>
+                            <strong>Datachat:</strong> Engage in real-time discussions about your data with visual
+                            insights.
+                        </li>
+                    </ul>
+
+                    <footer style="margin-top: 4rem; text-align: center; align-items: center">
+                        <h1 class="display-6">Designed by <a href="https://www.straive.com/"
+                                class="text-reset link-offset-3 link-underline link-underline-opacity-25"
+                                target="_blank">Straive</a>
+                        </h1>
+                    </footer>
+                </div>
+
+                <div id="data-ingest-tab" class="tab" style="text-align: center; align-items: center;">
+                    <h2>Social Media Post Data Ingestion</h2>
+                    <p>Upload and process social media post URLs for analysis</p>
+
+                    <details>
+                        <summary style="cursor: pointer; font-weight: bold; margin-bottom: 10px;">Choose Samples
+                        </summary>
+                        <!-- <div style="padding: 0.5rem; margin-bottom: 1rem;">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div id="card1" class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Yankees</h5>
+                                            <p class="card-text">Description</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div id="card2" class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Dodgers</h5>
+                                            <p class="card-text">Description</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 d-none">
+                                    <div id="card3" class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">World Series</h5>
+                                            <p class="card-text">Description</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div style="padding: 0.5rem; margin-bottom: 1rem;">
+                            <div class="row justify-content-center"> 
+                                <div class="col-md-4">
+                                    <div id="card1" class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">MLB</h5>
+                                            <p class="card-text">Yankees vs Dodgers in the 2024 World Series</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 d-none">
+                                    <div id="card2" class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Dodgers</h5>
+                                            <p class="card-text">Description</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 d-none">
+                                    <div id="card3" class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">World Series</h5>
+                                            <p class="card-text">Description</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <textarea class="form-control" rows="1" id="urlInput"
+                        placeholder="Input social media post URLs here, one per line" required
+                        style="width: 70%; margin: auto;"></textarea>
+
+                    <div id="myProgressBarDiv" style="width: 65%; margin: auto; margin-top: 1rem; display: none;">
+                        <div class="progress">
+                            <div id="myProgressBar" class="progress-bar" role="progressbar" style="width: 0%;"
+                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div id="progressText" class="mt-2" style="font-size: 14px; color: blue;"></div>
+
+                    <button id="submitUrlsButton" class="btn btn-secondary mt-2"><i class="bi bi-link-45deg"></i>
+                        Process URLs</button>
+                    <div id="urlResponse"></div>
+
+                    <div class="toast-container position-fixed top-0 end-0 p-3">
+                        <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <i class="bi bi-info-circle-fill toast-icon me-2"></i>
+                                <strong class="me-auto toast-title"></strong>
+                                <small class="toast-time"></small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="view-tab" class="tab">
+                    <div style="text-align: center; align-items: center;">
+                        <h2>360° Engagement Insights</h2>
+                        <p>Unlock comprehensive insights into audience interaction and post performance</p>
+                        <!-- <button id="fetchDataButton" class="btn btn-secondary"><i class="bi bi-stars"></i>
+                            Analyze</button> -->
+                        <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+                            <!-- <div style="margin: 10px; position: relative;">
+                                <input type="date" id="newStartDatePicker" class="form-control"
+                                    style="padding-bottom: 15px;" />
+                                <label for="newStartDatePicker"
+                                    style="position: absolute; left:10px; bottom: 2px; font-size: x-small;">Start
+                                    Date:</label>
+                            </div>
+
+                            <div style="margin: 10px; position: relative;">
+                                <input type="date" id="newEndDatePicker" class="form-control"
+                                    style="padding-bottom: 15px;" />
+                                <label for="newEndDatePicker"
+                                    style="position: absolute; left: 10px; bottom: 2px; font-size:x-small;">End
+                                    Date:</label>
+                            </div> -->
+
+                            <div style="margin: 10px;">
+                                <button id="fetchDataButton" class="btn btn-secondary"><i class="bi bi-stars"></i>
+                                    Analyze</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tableContainer" class="mt-5">
+                        <!-- Table will be rendered here -->
+                    </div>
+                </div>
+
+                <div id="Dashboard-tab" class="tab">
+                    <div style="text-align: center;">
+                        <h2>Visualization Insights and Analytics</h2>
+                        <p>Explore comprehensive analysis of social media posts, comments, and community interactions
+                        </p>
+
+                        <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+                            <div style="margin: 10px; position: relative; ">
+                                <input type="date" id="startDatePicker" class="form-control"
+                                    style="padding-bottom: 15px;" />
+                                <label for="startDatePicker"
+                                    style="position: absolute; left:10px; bottom: 2px; font-size: x-small;">Start
+                                    Date:</label>
+                            </div>
+
+                            <div style="margin: 10px; position: relative;">
+                                <input type="date" id="endDatePicker" class="form-control"
+                                    style="padding-bottom: 15px;" />
+                                <label for="endDatePicker"
+                                    style="position: absolute; left: 10px; bottom: 2px; font-size:x-small;">End
+                                    Date:</label>
+                            </div>
+
+                            <div style="margin: 10px;">
+                                <button class="btn btn-secondary" id="render-pre-defined-charts"
+                                    style="height: fit-content;"><i class="bi bi-magic"></i> Visualize</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center mb-3">
+
+                    </div>
+
+                    <div class="d-none">
+                        <h4 class="mb-4 section-heading mt-5" style="text-align: left;">Report Summary</h4>
+                        <div class="row mb-4 d-none">
+                            <div class="col-md-3">
+                                <div class="metric-card" id="metric-comments">
+                                    <!-- Metric value for comments will be inserted here -->
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="metric-card" id="metric-users">
+                                    <!-- Metric value for users will be inserted here -->
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="metric-card" id="metric-sentiments">
+                                    <!-- Metric value for sentiments will be inserted here -->
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="metric-card" id="metric-posts">
+                                    <!-- Metric value for posts will be inserted here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 d-none">
+                        <div id="reports-output">
+                            <div id="d3-table"
+                                style="border: 0.25px solid rgb(121, 121, 121); padding: 10px; margin-top: 20px;"></div>
+                            <div id="d3-engagement-chart"
+                                style="border: 0.25px solid rgb(121, 121, 121); padding: px; margin-top: 20px;"></div>
+                            <div id="d3-sentiment-chart"
+                                style="border: 0.25px solid rgb(121, 121, 121); padding: 10px; margin-top: 20px;"></div>
+                            <div id="d3-emotion-chart"
+                                style="border: 0.25px solid rgb(121, 121, 121); padding: 10px; margin-top: 20px;"></div>
+                            <div id="d3-theme-distribution-chart"
+                                style="border: 0.25px solid rgb(121, 121, 121); padding: 10px; margin-top: 20px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="datachat-tab" class="tab">
+                    <div style="text-align: center; align-items: center;">
+                        <h2>Conversational Data Insights</h2>
+                        <p>Chat with your data to uncover trends, engagement, and insights through simple conversations
+                        </p>
+                    </div>
+                    <form id="upload" class="mt-5 mx-auto narrative"></form>
+
+                    <div>
+                        <div id="tables-container" class="table-responsive"></div>
+                        <div id="sql" class="narrative mx-auto my-3"></div>
+                        <div id="result" class="table-responsive container mx-auto"></div>
+                        <div id="visualization-output"></div>
+                        <div id="chart-container" class="container my-3">
+                            <canvas id="chart"></canvas>
+                        </div>
+                        <pre id="chart-code" class="narrative mx-auto my-3"></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@gramex/ui@0.3/dist/dark-theme.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gridstack.js/8.2.2/gridstack-all.min.js"></script>
+    <script src="/static/js/script.js" type="module"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</body>
+
+</html>

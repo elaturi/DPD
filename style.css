@@ -1,0 +1,181 @@
+.tab {
+  display: none; 
+}
+.tab.active {
+  display: block;
+}
+
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+.filters-container {
+  margin-bottom: 20px;
+}
+
+.filter {
+  margin-bottom: 10px;
+}
+
+.filter input {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+
+.sidebar {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15.5rem;
+  border-right: 1px solid #dee2e6;
+  padding: 10px;
+  overflow-y: auto;
+  z-index: 1000;
+  background-color: #484848;
+}
+
+.sidebar h2 {
+  color: white;
+  /* margin-bottom: 30px; */
+  /* Increased margin for separation */
+  text-align: center;
+  /* Center align the title */
+}
+
+.sidebar .btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  color: #6EA8FE;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  /* Increased margin for button separation */
+  text-align: left;
+  transition: background-color 0.3s ease;
+  /* Smooth hover transition */
+  border: none;
+  /* Remove default button border */
+  /* background-color: #495057; */
+  /* Slightly darker background for buttons */
+}
+
+.sidebar .btn i {
+  margin-right: 10px;
+  /* Space between icon and text */
+}
+
+.sidebar .btn:hover {
+  background-color: #5ea1e4;
+  /* Darker blue on hover */
+}
+
+.sidebar .btn.active {
+  background-color: #007bff;
+  /* Highlight for active button */
+  color: white;
+}
+
+/* Content Area Styles */
+.content {
+  margin-left: 250px;
+  /* Adjust for sidebar width */
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  /* Smooth transition for content shift */
+}
+
+@media (max-width: 800px) {
+
+  /* Adjust content margin for smaller screens */
+  .content {
+    margin-left: 0;
+    /* No margin on smaller screens, sidebar can be toggled or different layout */
+    padding-top: 70px;
+    /* Example adjustment if you have a fixed header on smaller screens */
+  }
+
+  .sidebar {
+    width: 100%;
+    position: static;
+    /* Example: Sidebar becomes part of the flow on smaller screens */
+    height: auto;
+    margin-bottom: 20px;
+    z-index: 1;
+    /* Adjust z-index if needed */
+  }
+}
+
+.metric-card {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+.metric-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #343a40;
+}
+.metric-heading {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+
+#sampleData {
+  margin: 20px;
+}
+#card1, #card2, #card3 {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+#card1:hover, #card2:hover, #card3:hover {
+  transform: scale(1.02);
+  border: 2px solid rgb(45, 93, 197);
+}
+.modal-overlay {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+  animation: slideIn 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-close:hover {
+  color: #666;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
